@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty World | Косметика дүйнөсү</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="#home" class="logo">
+        <span class="logo-icon">✿</span>
+        <span>Beauty World<small>Косметика дүйнөсү</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Менюну ачуу">☰</button>
+
+    <nav id="navigation">
+        <a href="#home">Башкы бет</a>
+        <a href="#about">Мен жөнүндө</a>
+        <a href="#products">Каталог</a>
+        <a href="#favorites">Сүйүктүүлөр</a>
+        <a href="#contact">Байланыш</a>
+    </nav>
+
+    <button class="header-cart" onclick="goToCart()">
+        🛍️ Себет <span id="cartCount">0</span>
+    </button>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="eyebrow">ӨЗҮҢДҮ ЭРКЕЛЕТҮҮНҮН УБАГЫ КЕЛДИ</span>
+            <h1>Сулуулук — өзүңө болгон <span>камкордук.</span></h1>
+            <p>
+                Сүйүктүү косметикаларыңды танда.
+                Ар бир күнүңдү сулуулук жана ишеним менен башта!
+            </p>
+            <a href="#products" class="primary-btn">Каталогду көрүү ↗</a>
+
+            <div class="hero-stats">
+                <div><strong>08+</strong><small>Косметика түрү</small></div>
+                <div><strong>100%</strong><small>Камкордук</small></div>
+                <div><strong>♡</strong><small>Сен үчүн</small></div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85"
+                alt="Косметика жана сулуулук каражаттары">
+            <div class="floating-note">Your beauty<br>your rules ♡</div>
+        </div>
+    </section>
+
+    <section class="categories section" id="categories">
+        <div class="section-title">
+            <span class="eyebrow">ӨЗҮҢӨ ТАНДА</span>
+            <h2>Косметика дүйнөсү</h2>
+            <p>Сенин күнүмдүк сулуулук камкордугуң үчүн.</p>
+        </div>
+
+        <div class="category-grid">
+            <button class="category-card" onclick="filterProducts('Бетке кам көрүү')">
+                <span>🌸</span><strong>Бетке кам көрүү</strong>
+                <small>Кремдер жана сывороткалар</small>
+            </button>
+            <button class="category-card" onclick="filterProducts('Макияж')">
+                <span>💄</span><strong>Макияж</strong>
+                <small>Помада жана тушь</small>
+            </button>
+            <button class="category-card" onclick="filterProducts('Атырлар')">
+                <span>🌷</span><strong>Атырлар</strong>
+                <small>Жагымдуу жыттар</small>
+            </button>
+            <button class="category-card" onclick="filterProducts('Чачка кам көрүү')">
+                <span>🧴</span><strong>Чачка кам көрүү</strong>
+                <small>Чач үчүн каражаттар</small>
+            </button>
+        </div>
+    </section>
+
+    <section class="about section" id="about">
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=85"
+                alt="Сулуулук каражаттары">
+            <span class="image-label">Made with love ♡</span>
+        </div>
+
+        <div class="about-content">
+            <span class="eyebrow">МЕНИН ДОЛБООРУМ</span>
+            <h2>Салам! Beauty World дүйнөсүнө кош келиңиз! 💗</h2>
+            <p>
+                Менин мини-сайтым косметика жана сулуулук каражаттары
+                жөнүндө. Бул жерде бетке кам көрүүчү каражаттарды,
+                макияж буюмдарын жана атырларды көрө аласың.
+            </p>
+            <p>
+                Мен бул долбоорду веб-программалоону үйрөнүү,
+                HTML, CSS жана JavaScript менен иштөө үчүн түздүм.
+                Сайттын максаты — товарларды кооз көрсөтүп,
+                аларды тандоону жеңилдетүү.
+            </p>
+            <div class="about-points">
+                <span>♡ Кооз дизайн</span>
+                <span>♡ Ыңгайлуу каталог</span>
+                <span>♡ Онлайн себет</span>
+            </div>
+            <a href="#products" class="primary-btn">Товарларды көрүү ↗</a>
+        </div>
+    </section>
+
+    <section class="products-section section" id="products">
+        <div class="section-title">
+            <span class="eyebrow">СЕНИН СҮЙҮКТҮҮЛӨРҮҢ</span>
+            <h2>Популярдуу товарлар ✨</h2>
+            <p>Өзүңө жаккан косметиканы танда.</p>
+        </div>
+
+        <div class="shop-tools">
+            <input
+                id="searchInput"
+                type="search"
+                placeholder="🔍 Косметика издөө..."
+                aria-label="Косметика издөө">
+
+            <select id="categoryFilter" aria-label="Категорияны тандоо">
+                <option value="Баары">Бардык товарлар</option>
+                <option value="Бетке кам көрүү">Бетке кам көрүү</option>
+                <option value="Макияж">Макияж</option>
+                <option value="Атырлар">Атырлар</option>
+                <option value="Чачка кам көрүү">Чачка кам көрүү</option>
+            </select>
+        </div>
+
+        <div class="product-grid" id="productList"></div>
+        <p id="emptyProducts" class="empty-message" hidden>Товар табылган жок.</p>
+    </section>
+
+    <section class="favorites-section section" id="favorites">
+        <div class="section-title">
+            <span class="eyebrow">ЖҮРӨГҮҢ ТАНДАГАНДАР</span>
+            <h2>Сүйүктүү товарлар ♡</h2>
+            <p>Жүрөкчө баскычын басып, товарларыңды сакта.</p>
+        </div>
+        <div class="product-grid" id="favoriteList"></div>
+        <p id="emptyFavorites" class="empty-message">
+            Азырынча сүйүктүү товарың жок. ♡
+        </p>
+    </section>
+
+    <section class="benefits">
+        <div><span>🎀</span><strong>Кооз тандоо</strong><small>Сүйүктүү товарларың</small></div>
+        <div><span>🌷</span><strong>Камкордук</strong><small>Сулуулук сен үчүн</small></div>
+        <div><span>🛍️</span><strong>Ыңгайлуу себет</strong><small>Бааны автоматтык эсептөө</small></div>
+        <div><span>💗</span><strong>Жагымдуу дизайн</strong><small>Ар бир күнүңө сулуулук</small></div>
+    </section>
+
+    <section class="cart-section section" id="cart">
+        <div class="section-title">
+            <span class="eyebrow">СЕНИН ТАНДООҢ</span>
+            <h2>Сатып алуу себети 🛍️</h2>
+            <p>Товарларды текшерип, санын өзгөртө аласың.</p>
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-summary">
+            <div>
+                <span>Жалпы сумма</span>
+                <strong><span id="cartTotal">0</span> сом</strong>
+            </div>
+            <button class="primary-btn" onclick="checkout()">Буйрутма берүү ↗</button>
+            <button class="clear-btn" onclick="clearCart()">Себетти тазалоо</button>
+        </div>
+        <p class="demo-note">Бул окуу долбоору. Төлөм жана чыныгы жеткирүү туташтырыла элек.</p>
+    </section>
+
+    <section class="contact section" id="contact">
+        <div class="contact-box">
+            <span class="eyebrow">БАЙЛАНЫШ</span>
+            <h2>Суроолоруң барбы? 💌</h2>
+            <p>Beauty World долбооруна кош келиңиз! Биз менен электрондук почта аркылуу байланышсаң болот.</p>
+            <a class="primary-btn" href="mailto:beautyworld@example.com">
+                ✉ Кат жазуу
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <a class="logo" href="#home">✿ Beauty World</a>
+    <p>Сулуулук — өзүңдү сүйүүдөн башталат.</p>
+    <div class="footer-links">
+        <a href="#home">Башкы бет</a>
+        <a href="#about">Мен жөнүндө</a>
+        <a href="#products">Каталог</a>
+        <a href="#contact">Байланыш</a>
+    </div>
+    <small>© 2026 Beauty World. Окуу долбоору.</small>
+</footer>
+
+<div id="toast" class="toast" role="status"></div>
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Жогору чыгуу">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
